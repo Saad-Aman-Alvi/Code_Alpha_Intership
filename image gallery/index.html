@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Image Gallery</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <h1>My Responsive Image Gallery</h1>
+
+  <div class="filter-buttons">
+    <button onclick="filterGallery('all')">All</button>
+    <button onclick="filterGallery('nature')">Nature</button>
+    <button onclick="filterGallery('city')">City</button>
+    <button onclick="filterGallery('animals')">Animals</button>
+  </div>
+
+  <div class="gallery" id="gallery">
+    <!-- Sample Images (Use your own or royalty-free links) -->
+    <div class="gallery-item nature"><img src="https://picsum.photos/id/1018/800/500" alt="Nature" /></div>
+    <div class="gallery-item city"><img src="https://picsum.photos/id/1011/800/500" alt="City" /></div>
+    <div class="gallery-item animals"><img src="https://picsum.photos/id/237/800/500" alt="Animal" /></div>
+    <div class="gallery-item nature"><img src="https://picsum.photos/id/1020/800/500" alt="Nature" /></div>
+    <div class="gallery-item city"><img src="https://picsum.photos/id/1006/800/500" alt="City" /></div>
+    <div class="gallery-item animals"><img src="https://picsum.photos/id/1074/800/500" alt="Animal" /></div>
+    <div class="gallery-item nature"><img src="https://picsum.photos/id/1036/800/500" alt="Nature" /></div>
+    <div class="gallery-item city"><img src="https://picsum.photos/id/1043/800/500" alt="City" /></div>
+    <div class="gallery-item animals"><img src="https://picsum.photos/id/1024/800/500" alt="Animal" /></div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">×</span>
+    <span class="lightbox-controls" onclick="navigateLightbox(-1)">❮</span>
+    <img id="lightbox-img" src="" alt="Expanded View">
+    <span class="lightbox-controls" onclick="navigateLightbox(1)">❯</span>
+  </div>
+
+
+  <footer style="background: #222; color: #fff; padding: 40px 20px; text-align: center; margin-top: 60px;">
+    <div style="max-width: 900px; margin: auto;">
+      <h3 style="margin-bottom: 10px;">My Image Gallery</h3>
+      <p style="font-size: 14px; color: #bbb;">© 2025 All Rights Reserved by Saad Aman Alvi Designed for Internship Project in Code alpha</p>
+      <p style="margin-top: 10px;">📧 Contact: 03442967182 <a href="saadmaan680@gmail.com" style="color: #4FC3F7; text-decoration: none;">MY email</a></p>
+
+      <div style="margin-top: 20px;">
+        <a href="https://www.facebook.com/S44d111" style="color: #ccc; margin: 0 10px; text-decoration: none;">Facebook</a>
+        <a href="https://github.com/Saad-Aman-Alvi" style="color: #ccc; margin: 0 10px; text-decoration: none;">Github</a>
+        <a href="https://www.linkedin.com/in/saad-aman-alvi-aa40a5327/" style="color: #ccc; margin: 0 10px; text-decoration: none;">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
