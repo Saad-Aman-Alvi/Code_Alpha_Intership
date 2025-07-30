@@ -1,0 +1,195 @@
+/* Tablet Devices */
+@media (max-width: 992px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 120px;
+        height: auto;
+        padding-bottom: 80px;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+        margin-bottom: 50px;
+    }
+    
+    .hero-3d {
+        position: relative;
+        right: auto;
+        margin-top: 30px;
+    }
+    
+    .skills-container {
+        flex-direction: column;
+    }
+    
+    .skill-cube {
+        margin-bottom: 50px;
+    }
+    
+    .skills-info {
+        text-align: center;
+    }
+    
+    .service-card {
+        height: auto;
+        padding: 30px 20px;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    .navbar-3d {
+        padding: 15px 0;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: var(--primary-color);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 30px;
+        transition: all 0.5s ease;
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .nav-links li {
+        margin: 15px 0;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .menu-toggle.active .hamburger {
+        background-color: transparent;
+    }
+    
+    .menu-toggle.active .hamburger::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+    
+    .menu-toggle.active .hamburger::after {
+        transform: rotate(-45deg);
+        top: 0;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .typewriter h2 {
+        font-size: 1.3rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .cube, .skill-cube {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .face, .skill-face {
+        font-size: 2rem;
+    }
+    
+    .front {
+        transform: translateZ(75px);
+    }
+    
+    .back {
+        transform: rotateY(180deg) translateZ(75px);
+    }
+    
+    .right {
+        transform: rotateY(90deg) translateZ(75px);
+    }
+    
+    .left {
+        transform: rotateY(-90deg) translateZ(75px);
+    }
+    
+    .top {
+        transform: rotateX(90deg) translateZ(75px);
+    }
+    
+    .bottom {
+        transform: rotateX(-90deg) translateZ(75px);
+    }
+    
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .carousel-btn.prev {
+        left: 5px;
+    }
+    
+    .carousel-btn.next {
+        right: 5px;
+    }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+    }
+    
+    .service-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .cube, .skill-cube {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .face, .skill-face {
+        font-size: 1.5rem;
+    }
+    
+    .front {
+        transform: translateZ(60px);
+    }
+    
+    .back {
+        transform: rotateY(180deg) translateZ(60px);
+    }
+    
+    .right {
+        transform: rotateY(90deg) translateZ(60px);
+    }
+    
+    .left {
+        transform: rotateY(-90deg) translateZ(60px);
+    }
+    
+    .top {
+        transform: rotateX(90deg) translateZ(60px);
+    }
+    
+    .bottom {
+        transform: rotateX(-90deg) translateZ(60px);
+    }
+}

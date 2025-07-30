@@ -1,0 +1,151 @@
+/* 3D Cube for Hero Section */
+.cube {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotate 10s infinite linear;
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(42, 42, 114, 0.7);
+    border: 2px solid var(--accent-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: white;
+    opacity: 0.9;
+    transition: all 0.5s ease;
+}
+
+.face i {
+    transition: all 0.5s ease;
+}
+
+.cube:hover .face i {
+    transform: scale(1.2);
+}
+
+.front {
+    transform: translateZ(100px);
+    background-color: rgba(42, 42, 114, 0.8);
+}
+
+.back {
+    transform: rotateY(180deg) translateZ(100px);
+    background-color: rgba(0, 159, 253, 0.8);
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(100px);
+    background-color: rgba(255, 164, 0, 0.8);
+}
+
+.left {
+    transform: rotateY(-90deg) translateZ(100px);
+    background-color: rgba(46, 196, 182, 0.8);
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(100px);
+    background-color: rgba(231, 29, 54, 0.8);
+}
+
+.bottom {
+    transform: rotateX(-90deg) translateZ(100px);
+    background-color: rgba(108, 91, 123, 0.8);
+}
+
+@keyframes rotate {
+    0% { transform: rotateX(0) rotateY(0); }
+    100% { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+/* 3D Card Flip Effects */
+.flip-card {
+    perspective: 1000px;
+    width: 300px;
+    height: 400px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
+/* 3D Button Effects */
+.btn-3d {
+    position: relative;
+    transition: all 0.1s ease;
+    transform-style: preserve-3d;
+}
+
+.btn-3d:active {
+    transform: translateY(5px);
+}
+
+.btn-3d::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    bottom: -5px;
+    left: 0;
+    border-radius: 30px;
+    transform: translateZ(-1em);
+    transition: all 0.1s ease;
+}
+
+.btn-3d:active::before {
+    bottom: -2px;
+    height: 50%;
+}
+
+/* 3D Text Effects */
+.text-3d {
+    text-shadow: 
+        1px 1px 0 #999,
+        2px 2px 0 #888,
+        3px 3px 0 #777,
+        4px 4px 0 #666,
+        5px 5px 5px rgba(0, 0, 0, 0.4);
+    transform: perspective(500px) rotateX(10deg);
+}
+
+/* 3D Floating Elements */
+.float-3d {
+    animation: float 6s ease-in-out infinite;
+    transform-style: preserve-3d;
+}
+
+@keyframes float {
+    0% { transform: translateY(0) rotateY(0); }
+    50% { transform: translateY(-20px) rotateY(10deg); }
+    100% { transform: translateY(0) rotateY(0); }
+}

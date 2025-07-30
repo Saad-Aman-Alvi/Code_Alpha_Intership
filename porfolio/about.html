@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Saad Aman Alvi - Cyber Security & Frontend Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="3d.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+    /* About Page Specific Styles */
+.about-hero {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-hero-content {
+    z-index: 2;
+    padding: 0 20px;
+}
+
+.about-hero-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/hex-pattern.png');
+    opacity: 0.1;
+    animation: patternMove 30s linear infinite;
+}
+
+@keyframes patternMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 1000px 1000px; }
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    font-weight: 300;
+}
+
+.highlight {
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+/* Bio Section */
+.bio-section {
+    padding: 80px 0;
+    background-color: white;
+}
+
+.bio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.flip-card-container {
+    perspective: 1000px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.flip-card {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+    cursor: pointer;
+}
+
+.flip-card.flipped {
+    transform: rotateY(180deg);
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.flip-card-front {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    color: white;
+}
+
+.flip-card-back {
+    background-color: white;
+    color: var(--dark-color);
+    transform: rotateY(180deg);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.quick-facts {
+    margin-top: 20px;
+}
+
+.fact {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: rgba(42, 42, 114, 0.05);
+    border-radius: 5px;
+}
+
+.fact i {
+    margin-right: 10px;
+    color: var(--accent-color);
+}
+
+.bio-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 0 15px;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Expertise Section */
+.expertise-section {
+    padding: 80px 0;
+    background-color: var(--light-color);
+}
+
+.expertise-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 12px 25px;
+    margin: 0 10px;
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.tab-btn:hover:not(.active) {
+    background-color: rgba(42, 42, 114, 0.1);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.skill-item {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-10px);
+}
+
+.skill-icon {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.skill-meter {
+    height: 8px;
+    background-color: #eee;
+    border-radius: 4px;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.meter-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 4px;
+    transition: width 1s ease;
+}
+
+/* Tools Cloud */
+.tools-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    perspective: 1000px;
+}
+
+.tool {
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.tool i {
+    margin-right: 8px;
+    color: var(--accent-color);
+}
+
+.tool:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-5px) rotateX(20deg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.tool:hover i {
+    color: white;
+}
+
+/* Timeline Section */
+.timeline-section {
+    padding: 80px 0;
+    background-color: white;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background-color: var(--primary-color);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-date {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -25px;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 30px;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(255, 164, 0, 0.3);
+}
+
+.timeline-content {
+    width: calc(50% - 40px);
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-left: auto;
+}
+
+.timeline-item:nth-child(odd) .timeline-content::before {
+    right: -10px;
+    box-shadow: 5px -5px 25px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    margin-right: auto;
+}
+
+.timeline-item:nth-child(even) .timeline-content::before {
+    left: -10px;
+    box-shadow: -5px 5px 25px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.timeline-content h4 {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+/* Certifications Section */
+.certifications-section {
+    padding: 80px 0;
+    background-color: var(--light-color);
+}
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.cert-card {
+    height: 350px;
+    perspective: 1000px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.cert-front, .cert-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: transform 0.8s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.cert-front {
+    background-color: white;
+    transform: rotateY(0deg);
+}
+
+.cert-back {
+    background-color: var(--primary-color);
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.cert-card:hover .cert-front {
+    transform: rotateY(-180deg);
+}
+
+.cert-card:hover .cert-back {
+    transform: rotateY(0deg);
+}
+
+.cert-front img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.cert-back h3 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.cert-back p {
+    margin-bottom: 20px;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.btn-small {
+    padding: 8px 20px;
+    font-size: 0.8rem;
+}
+
+/* CTA Section */
+.cta-section {
+    padding: 80px 0;
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+}
+
+.cta-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.cta-btns {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .bio-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .flip-card-container {
+        margin-bottom: 50px;
+    }
+    
+    .timeline::before {
+        left: 30px;
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+        width: calc(100% - 80px);
+        margin-left: 80px;
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-content::before,
+    .timeline-item:nth-child(even) .timeline-content::before {
+        left: -10px;
+        right: auto;
+        box-shadow: -5px 5px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .timeline-date {
+        left: 30px;
+        transform: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-hero {
+        height: 50vh;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .bio-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .stat-item {
+        padding: 0;
+    }
+    
+    .expertise-tabs {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .tab-btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    .cta-btns {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-hero {
+        height: 40vh;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .timeline-content {
+        padding: 20px;
+    }
+    
+    .certifications-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Personal Card Styles */
+.personal-card {
+  width: 100%;
+  max-width: 350px;
+  height: 450px;
+  perspective: 1000px;
+  margin: 0 auto 40px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s;
+}
+
+.personal-card:hover {
+  transform: translateY(-10px);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: transform 0.8s;
+}
+
+.card-front {
+  background-color: var(--primary-color);
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  background-color: white;
+  padding: 25px;
+  transform: rotateY(180deg);
+  overflow-y: auto;
+}
+
+.personal-card:hover .card-front {
+  transform: rotateY(-180deg);
+}
+
+.personal-card:hover .card-back {
+  transform: rotateY(0deg);
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 25px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: white;
+}
+
+.profile-overlay h3 {
+  margin-bottom: 5px;
+  font-size: 1.5rem;
+}
+
+.profile-overlay p {
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+.location-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.9rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+.location-tag i {
+  margin-right: 5px;
+}
+
+/* Education Items */
+.education-item {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.education-item:last-child {
+  border-bottom: none;
+  margin-bottom: 15px;
+  padding-bottom: 0;
+}
+
+.edu-icon {
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.edu-details h4 {
+  color: var(--primary-color);
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+.edu-details p {
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.edu-year {
+  display: inline-block;
+  font-size: 0.8rem;
+  background-color: var(--light-color);
+  color: var(--primary-color);
+  padding: 3px 10px;
+  border-radius: 15px;
+  font-weight: 600;
+}
+
+.current-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--light-color);
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.current-status i {
+  font-size: 1.2rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .personal-card {
+    max-width: 100%;
+    height: 400px;
+  }
+  
+  .card-back {
+    padding: 20px;
+  }
+}
+
+
+/* Update the bio-grid styles */
+.bio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px; /* Reduce this gap value */
+    align-items: center;
+}
+
+/* Adjust the flip card container */
+.flip-card-container {
+    perspective: 1000px;
+    max-width: 400px;
+    margin: 0;
+    width: 100%;
+}
+
+/* For mobile view */
+@media (max-width: 992px) {
+    .bio-grid {
+        grid-template-columns: 1fr;
+        gap: 20px; /* Adjust gap for mobile */
+    }
+    
+    .flip-card-container {
+        margin-bottom: 20px; /* Reduce bottom margin */
+    }
+}
+</style>
+</head>
+<body>
+    <!-- 3D Navigation -->
+    <nav class="navbar-3d">
+        <div class="nav-container">
+            <div class="logo" data-text="𝐒ᴀᴀ𝐃I">𝐒ᴀᴀ𝐃I</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <div class="hamburger"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="about-hero-content">
+            <h1 class="hero-title">About <span class="text-3d">Me</span></h1>
+            <p class="hero-subtitle">Cyber Security Specialist & Frontend Developer</p>
+        </div>
+        <div class="about-hero-pattern"></div>
+    </section>
+
+   
+   
+<!-- Add this to your about.html file in the bio-section -->
+<div class="personal-card">
+  <div class="card-front">
+    <img src="./saad prof pic.jpeg" alt="Saad Aman Alvi" class="profile-img">
+    <div class="profile-overlay">
+      <h3>Saad Aman Alvi</h3>
+      <p>Web Developer & Cybersecurity Student</p>
+      <span class="location-tag"><i class="fas fa-map-marker-alt"></i> Karachi, Pakistan</span>
+    </div>
+  </div>
+  <div class="card-back">
+    <h3>My Education Journey</h3>
+    
+    <div class="education-item">
+      <div class="edu-icon">
+        <i class="fas fa-graduation-cap"></i>
+      </div>
+      <div class="edu-details">
+        <h4>Bahria College Karachi</h4>
+        <p>Intermediate - Computer Science</p>
+        <span class="edu-year">2023-2025</span>
+      </div>
+    </div>
+    
+    <div class="education-item">
+      <div class="edu-icon">
+        <i class="fas fa-school"></i>
+      </div>
+      <div class="edu-details">
+        <h4>Model Public High School DHA</h4>
+        <p>Matriculation - Science</p>
+        <span class="edu-year">2010-2023</span>
+      </div>
+    </div>
+    
+    <div class="education-item">
+      <div class="edu-icon">
+        <i class="fas fa-laptop-code"></i>
+      </div>
+      <div class="edu-details">
+        <h4>Bano Qabil</h4>
+        <p>Web Development Certification</p>
+        <span class="edu-year">2025</span>
+      </div>
+    </div>
+    
+    <div class="current-status">
+      <i class="fas fa-user-shield"></i>
+      <span>Currently studying Cybersecurity-present</span>
+    </div>
+  </div>
+</div>
+                <div class="bio-content">
+                    <h2 class="section-title">My <span class="highlight">Story</span></h2>
+                    <p>I'm a passionate technologist with a unique blend of cybersecurity expertise and frontend development skills. My journey began in ethical hacking, which evolved into a fascination with building secure, beautiful web applications.</p>
+                    
+                    <p>With over 2+ years of professional experience, I've helped organizations strengthen their digital defenses while creating intuitive user interfaces that prioritize both aesthetics and security.</p>
+                    
+                    <div class="bio-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="120">0</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="45">0</div>
+                            <div class="stat-label">Security Audits</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="32">0</div>
+                            <div class="stat-label">Happy Clients</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Expertise Section -->
+    <section class="expertise-section">
+        <div class="container">
+            <h2 class="section-title">My <span class="highlight">Expertise</span></h2>
+            
+            <div class="expertise-tabs">
+                <button class="tab-btn active" data-tab="security">Security Skills</button>
+                <button class="tab-btn" data-tab="development">Development Skills</button>
+                <button class="tab-btn" data-tab="tools">Tools & Technologies</button>
+            </div>
+            
+            <div class="tab-content active" id="security">
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-icon"><i class="fas fa-user-secret"></i></div>
+                        <h3>Penetration Testing</h3>
+                        <div class="skill-meter">
+                            <div class="meter-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon"><i class="fas fa-lock"></i></div>
+                        <h3>Cryptography</h3>
+                        <div class="skill-meter">
+                            <div class="meter-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Security Architecture</h3>
+                        <div class="skill-meter">
+                            <div class="meter-fill" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon"><i class="fas fa-bug"></i></div>
+                        <h3>Vulnerability Assessment</h3>
+                        <div class="skill-meter">
+                            <div class="meter-fill" style="width: 92%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="development">
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-icon"><i class="fab fa-html5"></i></div>
+                        <h3>HTML/CSS</h3>
+                        <div class="skill-meter">
+                            <div class="meter-fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon"><i class="fab fa-js"></i></div>
+                        <h3>JavaScript</h3>
+                        <div class="skill-meter">
+                            <div class="meter-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon"><i class="fab fa-react"></i></div>
+                        <h3>React</h3>
+                        <div class="skill-meter">
+                            <div class="meter-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <h3>Responsive Design</h3>
+                        <div class="skill-meter">
+                            <div class="meter-fill" style="width: 93%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="tools">
+                <div class="tools-cloud">
+                    <div class="tool" style="--i:1;"><i class="fab fa-linux"></i> Linux</div>
+                    <div class="tool" style="--i:2;"><i class="fas fa-terminal"></i> Kali</div>
+                    <div class="tool" style="--i:3;"><i class="fab fa-git-alt"></i> Git</div>
+                    <div class="tool" style="--i:4;"><i class="fab fa-node-js"></i> Node.js</div>
+                    <div class="tool" style="--i:5;"><i class="fas fa-database"></i> SQL</div>
+                    <div class="tool" style="--i:6;"><i class="fab fa-npm"></i> npm</div>
+                    <div class="tool" style="--i:7;"><i class="fas fa-network-wired"></i> Wireshark</div>
+                    <div class="tool" style="--i:8;"><i class="fas fa-fire"></i> Burp Suite</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section class="timeline-section">
+        <div class="container">
+            <h2 class="section-title">My <span class="highlight">Journey</span></h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2025 - Present</div>
+                    <div class="timeline-content">
+                        <h3>Senior Security Developer</h3>
+                        <h4>CyberShield Solutions</h4>
+                        <p>Leading a team that develops secure web applications while implementing robust security measures. Conduct regular penetration tests and security audits for client projects.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024 - Present</div>
+                    <div class="timeline-content">
+                        <h3>Frontend Developer & Security Consultant</h3>
+                        <h4>Digital Fortress</h4>
+                        <p>Developed responsive web applications while consulting on security best practices. Implemented security protocols that reduced vulnerabilities by 65% across client projects.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025 - Present</div>
+                    <div class="timeline-content">
+                        <h3>Junior Penetration Tester</h3>
+                        <h4>SecureNet Systems</h4>
+                        <p>Conducted vulnerability assessments and penetration tests for various web applications. Discovered and reported critical security flaws in high-profile client systems.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024 - 2025</div>
+                    <div class="timeline-content">
+                        <h3>Web Developer Intern</h3>
+                        <h4>TechStart Inc.</h4>
+                        <p>Built and maintained company websites while learning foundational security principles. Developed my first secure login system during this internship.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications-section">
+        <div class="container">
+            <h2 class="section-title">My <span class="highlight">Certifications</span></h2>
+            
+            <div class="certifications-grid">
+                <div class="cert-card">
+                    <div class="cert-front">
+                        <img src="./istockphoto-1075374570-612x612.jpg" alt="CEH Certification">
+                    </div>
+                    <div class="cert-back">
+                        <h3>Certified Ethical Hacker</h3>
+                        <p>EC-Council | 2025</p>
+                        <a href="#" class="btn btn-small">View Credential</a>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-front">
+                        <img src="./istockphoto-1075374570-612x612.jpg" alt="OSCP Certification">
+                    </div>
+                    <div class="cert-back">
+                        <h3>Offensive Security Certified Professional</h3>
+                        <p>Offensive Security | 2020</p>
+                        <a href="#" class="btn btn-small">View Credential</a>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-front">
+                        <img src="./istockphoto-1075374570-612x612.jpg" alt="React Certification">
+                    </div>
+                    <div class="cert-back">
+                        <h3>Advanced React Developer</h3>
+                        <p>Meta | Present</p>
+                        <a href="#" class="btn btn-small">View Credential</a>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-front">
+                        <img src="./istockphoto-1075374570-612x612.jpg" alt="CISSP Certification">
+                    </div>
+                    <div class="cert-back">
+                        <h3>Certified Information Systems Security Professional</h3>
+                        <p>(ISC)² | 2028</p>
+                        <a href="#" class="btn btn-small">View Credential</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Build Something <span class="highlight">Secure</span> and <span class="highlight">Beautiful</span>?</h2>
+            <p>Whether you need a secure web application or want to assess your existing systems, I can help.</p>
+            <div class="cta-btns">
+                <a href="contact.html" class="btn btn-primary btn-3d">Get In Touch</a>
+                <a href="projects.html" class="btn btn-secondary btn-3d">View My Work</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="portfolio-footer">
+  <!-- 3D Footer Wave -->
+  <div class="footer-wave">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="var(--primary-color)"></path>
+      <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="var(--primary-color)"></path>
+      <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="var(--primary-color)"></path>
+    </svg>
+  </div>
+
+  <div class="footer-container">
+    <!-- Brand Column -->
+    <div class="footer-column brand-column">
+      <div class="footer-logo">
+        <span class="logo-3d">𝐒ᴀᴀ𝐃I</span>
+        <h3>Saad Aman Alvi</h3>
+        <p>Web Developer & Cybersecurity Specialist</p>
+      </div>
+      <div class="cyber-badge">
+        <i class="fas fa-shield-alt"></i>
+        <span>Secure Digital Solutions</span>
+      </div>
+       <div class="footer-social">
+        <a href="https://github.com/Saad-Aman-Alvi" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/saad-aman-alvi-aa40a5327/" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://x.com/Saaddon0344" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-icon" aria-label="HackerRank"><i class="fab fa-hackerrank"></i></a>
+      </div>
+    </div>
+
+    <!-- Quick Links Column -->
+    <div class="footer-column">
+      <h4 class="footer-title">Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+        <li><a href="projects.html"><i class="fas fa-chevron-right"></i> Projects</a></li>
+        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
+        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Services Column -->
+    <div class="footer-column">
+      <h4 class="footer-title">Services</h4>
+      <ul class="footer-links">
+        <li><a href="#"><i class="fas fa-code"></i> Web Development</a></li>
+        <li><a href="#"><i class="fas fa-shield-alt"></i> Security Audits</a></li>
+        <li><a href="#"><i class="fas fa-bug"></i> Penetration Testing</a></li>
+        <li><a href="#"><i class="fas fa-lock"></i> Security Consulting</a></li>
+        <li><a href="#"><i class="fas fa-mobile-alt"></i> Responsive Design</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Column -->
+    <div class="footer-column contact-column">
+      <h4 class="footer-title">Contact Me</h4>
+      <ul class="footer-contact">
+       <a href="https://maps.app.goo.gl/dxAXEJ3yLEbLGtqLA"> <li><i class="fas fa-map-marker-alt"></i>Karachi , Pakistan</li></a>
+        <li><i class="fas fa-envelope"></i>Saadamaan680@gmail.com</li>
+       <a href="https://wa.me/923442967182"> <li><i class="fas fa-phone-alt"></i> +92 344 2967182</li></a>
+      </ul>
+      
+      <div class="newsletter">
+        <h5>Security Newsletter</h5>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your Email" required>
+          <button type="submit" class="btn-3d">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <div class="container">
+      <p>&copy; 2025 Saad Aman Alvi. All rights secured.</p>
+      <div class="security-info">
+        <i class="fas fa-lock"></i>
+        <span>Encrypted Connection</span>
+        <i class="fas fa-fingerprint"></i>
+      </div>
+    </div>
+  </div>
+</footer>
+    <script src="main.js"></script>
+    <script src="3d-effects.js"></script>
+    <script>
+        // About Page Specific JS
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab functionality
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons and contents
+                    tabBtns.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    btn.classList.add('active');
+                    const tabId = btn.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Animate stats counting
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            function animateStats() {
+                statNumbers.forEach(stat => {
+                    const target = parseInt(stat.getAttribute('data-count'));
+                    const duration = 2000; // 2 seconds
+                    const step = target / (duration / 16); // 60fps
+                    
+                    let current = 0;
+                    const counter = setInterval(() => {
+                        current += step;
+                        if (current >= target) {
+                            clearInterval(counter);
+                            stat.textContent = target;
+                        } else {
+                            stat.textContent = Math.floor(current);
+                        }
+                    }, 16);
+                });
+            }
+            
+            // Only animate when section is in view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateStats();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            const bioStats = document.querySelector('.bio-stats');
+            if (bioStats) {
+                observer.observe(bioStats);
+            }
+            
+            // Flip card interaction
+            const flipCard = document.querySelector('.flip-card');
+            if (flipCard) {
+                flipCard.addEventListener('click', function() {
+                    this.classList.toggle('flipped');
+                });
+            }
+        });
+        // Update the flip card interaction in your script
+document.addEventListener('DOMContentLoaded', function() {
+    // Flip card interaction
+    const flipCards = document.querySelectorAll('.flip-card, .personal-card');
+    
+    flipCards.forEach(card => {
+        card.addEventListener('click', function() {
+            // For the flip card
+            if (this.classList.contains('flip-card')) {
+                this.classList.toggle('flipped');
+            }
+            // For the personal card
+            else {
+                const front = this.querySelector('.card-front');
+                const back = this.querySelector('.card-back');
+                
+                if (front.style.transform === 'rotateY(-180deg)') {
+                    front.style.transform = 'rotateY(0deg)';
+                    back.style.transform = 'rotateY(180deg)';
+                } else {
+                    front.style.transform = 'rotateY(-180deg)';
+                    back.style.transform = 'rotateY(0deg)';
+                }
+            }
+        });
+    });
+
+    // Rest of your existing JavaScript...
+});
+    </script>
+</body>
+</html>
